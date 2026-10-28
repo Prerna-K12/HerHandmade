@@ -1,0 +1,111 @@
+{
+  "common": {
+    "appName": "HerHandmade", "loading": "Loading…", "save": "Save", "cancel": "Cancel", "delete": "Delete",
+    "back": "Back", "next": "Next", "previous": "Previous", "search": "Search", "logout": "Log out",
+    "copyLink": "Copy link", "copied": "Copied", "optional": "optional", "page": "Page {{page}} of {{pages}}",
+    "refresh": "Refresh", "confirm": "Are you sure?", "saved": "Saved", "uploading": "Uploading…",
+    "quantity": "Quantity", "deadline": "Deadline", "village": "Village", "district": "District",
+    "language": "Language", "phone": "Phone", "password": "Password", "name": "Name",
+    "notFound": "This page does not exist."
+  },
+  "role": { "admin": "NGO Admin", "leader": "Sakhi Captain" },
+  "nav": { "orders": "Orders", "captains": "Captains", "posts": "Posts", "tasks": "Tasks", "feed": "Feed", "group": "My group" },
+  "status": {
+    "submitted": "Received", "accepted": "Accepted", "rejected": "Rejected", "in_production": "Being made",
+    "completed": "Made", "dispatched": "On the way", "delivered": "Delivered", "cancelled": "Cancelled",
+    "assigned": "New", "declined": "Declined", "done": "Done"
+  },
+  "orderAction": {
+    "accepted": "Accept order", "rejected": "Reject order", "cancelled": "Cancel order",
+    "in_production": "Start production", "completed": "Mark as made",
+    "dispatched": "Mark as dispatched", "delivered": "Mark as delivered"
+  },
+  "home": {
+    "tagline": "Handmade by village women. Ordered in bulk by you.",
+    "lead": "Tell us what you need. We find the right women's group, and you can follow every step.",
+    "placeOrder": "Place an order", "staffLogin": "Staff login",
+    "trackHint": "Already ordered? Open the tracking link we emailed you."
+  },
+  "login": { "title": "Staff login", "help": "Admins and Sakhi Captains log in here.", "submit": "Log in" },
+  "form": {
+    "required": "Please fill this in", "quantity": "Enter a number of 1 or more",
+    "date": "Choose a date in the future", "email": "Enter a valid email"
+  },
+  "order": {
+    "title": "Place an order", "businessName": "Business name", "location": "Location",
+    "item": "What do you need?", "itemHint": "For example: handmade rakhi", "quantity": "Quantity",
+    "deliveryDate": "Delivery date", "email": "Email", "phone": "Phone", "submit": "Send order",
+    "successTitle": "Order received", "successText": "We emailed you a tracking link. Keep your reference number.",
+    "reference": "Reference", "openTracking": "Open tracking page"
+  },
+  "track": {
+    "title": "Your order", "progress": "Progress", "photos": "Made by women in these villages",
+    "photosEmpty": "Photos will appear here once our team has checked them.",
+    "contact": "Questions? Contact {{ngo}}.", "notFound": "We could not find this order. Please check your link.",
+    "deliveryBy": "Delivery by {{date}}"
+  },
+  "group": {
+    "tasks": "Our work", "feed": "News from the NGO and your captain", "noTasks": "No tasks yet.",
+    "invalid": "This link is not valid any more. Please ask your Sakhi Captain for a new link.",
+    "readOnly": "You can only view this page."
+  },
+  "orders": {
+    "searchPlaceholder": "Business, item or reference", "all": "All", "none": "No orders found.",
+    "delivery": "Delivery {{date}}", "assignedOf": "{{assigned}} of {{total}} assigned"
+  },
+  "detail": {
+    "business": "Business", "copyTracking": "Copy tracking link", "actions": "Order status", "finalStatus": "No further changes.",
+    "timeline": "History", "find": "Find the best group", "findHint": "Type a product, for example rakhi",
+    "sort": "Sort by", "bestRated": "Best rated", "fastest": "Fastest available", "freeNow": "Free now",
+    "freeFrom": "Free from {{date}}", "currentTask": "Working on: {{item}} (due {{date}})",
+    "noGroups": "No group has this skill yet.", "remaining": "{{n}} pieces left to assign",
+    "assign": "Assign", "assignTo": "Assign to {{name}}", "assignments": "Assignments",
+    "noAssignments": "Nothing assigned yet.", "reference": "Reference images", "addReference": "Add reference images",
+    "proof": "Proof photos", "noProof": "No photos yet.", "awaitingReview": "Waiting for your review.",
+    "approvedNote": "Approved. The business can see these photos.", "approve": "Approve photos",
+    "unapprove": "Hide photos from the business", "produced": "Made: {{n}}"
+  },
+  "captains": {
+    "add": "Add a Sakhi Captain", "create": "Create captain", "groupName": "Group name",
+    "passwordHint": "At least 8 characters. Tell her the password in person.", "newSkill": "Add a skill",
+    "skillName": "Skill name", "aliases": "Other names, separated by commas", "addSkill": "Add skill",
+    "skills": "Skills and ratings", "rating": "rating", "notRated": "Not rated", "verified": "Verified",
+    "saveSkills": "Save ratings", "resetPassword": "Reset password", "deactivate": "Deactivate",
+    "newPassword": "New password for {{name}} (at least 8 characters):",
+    "confirmDeactivate": "Deactivate {{name}} and her group?", "active": "Active", "inactive": "Inactive",
+    "openTasks": "{{n}} open tasks"
+  },
+  "posts": {
+    "title": "Posts", "new": "New post", "audience": "Send to", "allGroups": "All groups", "oneCaptain": "One Sakhi Captain",
+    "chooseCaptain": "Which captain?", "ownGroupNote": "Your post goes to the women of your group.", "type": "Type",
+    "text": "Text", "image": "Photo", "video": "Video", "message": "Message", "videoUrl": "YouTube link",
+    "videoHelp": "Upload the video to YouTube as Unlisted, then paste its link here.", "choosePhoto": "Choose a photo",
+    "post": "Post", "none": "No posts yet.", "needText": "Write a message.", "needVideo": "Paste a YouTube link.",
+    "needImage": "Choose a photo.", "needCaptain": "Choose a captain."
+  },
+  "captain": {
+    "title": "My work", "current": "Working on now", "requests": "New requests",
+    "requestsNote": "Please accept or decline these.", "upcoming": "Next in line", "finished": "Finished",
+    "noTasks": "No tasks right now.", "pieces": "{{n}} pieces", "due": "Due {{date}}",
+    "respondTitle": "Can your group do this?", "accept": "Accept", "decline": "Decline",
+    "declineReason": "Reason (optional)", "declinedNote": "You declined this task.", "reference": "Design to follow",
+    "proofTitle": "Photos of the work", "proofHelp": "Add at least one photo before you mark the task done.",
+    "addPhotos": "Add photos", "approvedNote": "The NGO approved your photos.", "waitingNote": "The NGO will check your photos soon.",
+    "finishTitle": "Finished?", "producedQty": "How many pieces were made?", "markDone": "Mark as done",
+    "doneNote": "Done. {{n}} pieces made. Thank you!", "groupLink": "Link for the women of your group",
+    "groupLinkHelp": "Share this link on WhatsApp. The women can see tasks and posts, nothing else.",
+    "newLink": "Make a new link", "newLinkConfirm": "The old link will stop working. Continue?",
+    "members": "Women in the group", "memberName": "Name", "addMember": "Add", "noMembers": "No names added yet."
+  },
+  "errors": {
+    "VALIDATION_ERROR": "Please check what you entered", "INVALID_ID": "That item was not found",
+    "DEADLINE_AFTER_DELIVERY": "The deadline is after the delivery date", "UNAUTHENTICATED": "Please log in",
+    "INVALID_CREDENTIALS": "Wrong phone number or password", "INVALID_ACCESS_CODE": "This link is not valid",
+    "FORBIDDEN": "You are not allowed to do this", "NOT_FOUND": "Not found", "SKILL_NOT_FOUND": "No skill matches that word",
+    "INVALID_TRANSITION": "That step is not allowed now", "QUANTITY_EXCEEDED": "That is more than what is left to assign",
+    "EVIDENCE_REQUIRED": "Add at least one photo first", "ASSIGNMENT_OPEN": "Some assignments are still open",
+    "ALREADY_EXISTS": "This already exists", "FILE_TOO_LARGE": "The photo is too big", "UNSUPPORTED_FILE": "Use a JPEG, PNG or WebP photo",
+    "TOO_MANY_REQUESTS": "Too many tries. Please wait a few minutes.", "INTERNAL_ERROR": "Something went wrong. Please try again.",
+    "NETWORK_ERROR": "No connection. Please try again."
+  }
+}
