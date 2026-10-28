@@ -1,0 +1,73 @@
+# One command on the server:  docker compose up -d --build
+# Needs a .env file next to this one (copy .env.example and fill it in; see help.md).
+name: herhandmade
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: herhandmade
+      POSTGRES_USER: herhandmade
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Runs only the first time, when the database is empty: creates all the tables.
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U herhandmade -d herhandmade"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: "5000"
+      DATABASE_URL: postgres://herhandmade:${POSTGRES_PASSWORD}@postgres:5432/herhandmade
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      COOKIE_SECURE: ${COOKIE_SECURE:-true}
+      CLIENT_ORIGIN: ${PUBLIC_BASE_URL:?Set PUBLIC_BASE_URL in .env}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL}
+      UPLOAD_DIR: /data/uploads
+      SEED_ADMIN_NAME: ${SEED_ADMIN_NAME:-NGO Admin}
+      SEED_ADMIN_PHONE: ${SEED_ADMIN_PHONE:-9000000001}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      MAIL_FROM: ${MAIL_FROM:-HerHandmade <no-reply@example.com>}
+      NGO_NAME: ${NGO_NAME:-HerHandmade}
+      NGO_EMAIL: ${NGO_EMAIL:-}
+      NGO_PHONE: ${NGO_PHONE:-}
+    volumes:
+      - uploads:/data/uploads
+
+  # Caddy serves the React app, gets the HTTPS certificate by itself, and forwards /api to the API.
+  caddy:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pgdata:
+  uploads:
+  caddy_data:
+  caddy_config:
