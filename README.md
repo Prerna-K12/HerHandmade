@@ -7,8 +7,6 @@ A small, mobile-first platform for an NGO that connects **businesses placing bul
 3. The Sakhi Captain (group leader) accepts, uploads proof photos and marks the work done.
 4. The business sees admin-approved photos, labelled with village and district, on its tracking page.
 
-> New here? Start with **[help.md](help.md)**: setup, the `.env` file, what every file does, and how to go live.
-
 ---
 
 ## 1. Who uses it
@@ -74,8 +72,7 @@ Every error looks like `{ "code": "INVALID_TRANSITION", "message": "..." }`. The
 | `assignment_media` | Reference images and proof photos (random file names) |
 | `broadcasts` | Posts: text, photo, or YouTube link |
 
-The database enforces the basics (ratings 1-5, valid statuses, unique phones, a video post must have a link). Performance numbers: [`docs/PERFORMANCE.md`](docs/PERFORMANCE.md).
-
+The database enforces the basics (ratings 1-5, valid statuses, unique phones, a video post must have a link). 
 ## 5. Statuses
 
 **Order** is changed **only by the admin**, one allowed move at a time (`TRANSITIONS` in `backend/src/constants.js`):
@@ -128,7 +125,7 @@ Each group has an 8-character code (like `K7M2-9QXA`). The captain shares `/g/<c
 | Admin | all groups, or one captain |
 | Captain | her own group only (the server sets the target) |
 
-Types: text, photo (uploaded), or video. **Videos are YouTube links**: upload them to YouTube as *Unlisted* and paste the link (see help.md).
+Types: text, photo (uploaded), or video. **Videos are YouTube links**: upload them to YouTube as *Unlisted* and paste the link.
 
 ### Live updates
 
@@ -136,8 +133,7 @@ Dashboards refresh every 30 seconds and have a Refresh button. Real-time push is
 
 ## 7. API routes
 
-Base `/api`. JSON, except photo uploads (`multipart/form-data`). Lists use `?page=1&limit=20` and return `{ items, page, limit, total }`. Full walkthrough with real responses: [`docs/API_TESTING.md`](docs/API_TESTING.md).
-
+Base `/api`. JSON, except photo uploads (`multipart/form-data`). Lists use `?page=1&limit=20` and return `{ items, page, limit, total }`. 
 | Module | Method and path | Who |
 |---|---|---|
 | **public** | `POST /public/orders` | anyone (rate limited, honeypot) |
@@ -181,11 +177,9 @@ Base `/api`. JSON, except photo uploads (`multipart/form-data`). Lists use `?pag
 
 ```
 herhandmade/
-├─ help.md                  start here: setup, .env, what every file does
 ├─ docker-compose.yml  Caddyfile  .env.example
 ├─ .github/workflows/ci.yml
 ├─ scripts/backup.sh
-├─ docs/                    API_TESTING.md (Postman), PERFORMANCE.md
 ├─ backend/
 │  ├─ db/schema.sql
 │  ├─ scripts/              init-db.js, seed.js, seed-bulk-orders.js
@@ -203,8 +197,6 @@ herhandmade/
 | Backend | `cd backend && npm test` | 71 tests on a real PostgreSQL test database: order and assignment rules, quantity cap, matching in both modes, ratings, uploads, **privacy checks** (captains get no business data, unapproved photos never public, other groups' files unreachable), auth, rate limiting |
 | Frontend | `cd frontend && npm test` | 12 tests: login, order form validation, protected routes, helpers |
 | Lint | `npm run lint` in each folder | Code style |
-| API by hand | [`docs/API_TESTING.md`](docs/API_TESTING.md) | Postman walkthrough with real responses |
-
 ## 11. Decisions and "what I'd add next"
 
 | Today | Why | Next step |
@@ -213,7 +205,7 @@ herhandmade/
 | Modular monolith | Tiny load | Split only if one module must scale alone |
 | Admin controls order status by hand | Keeps order and assignment code independent | Auto-update from assignments |
 | 30-second refresh | Simple and enough | Socket.IO live push |
-| Page-number paging, `ILIKE` search | Fast enough at ~120k orders a year (see PERFORMANCE.md) | Keyset paging, trigram index |
+| Page-number paging, `ILIKE` search | Fast enough at ~120k orders a year | Keyset paging, trigram index |
 | `/api/media` needs login, random names | Simple | Per-group checks or signed, expiring URLs |
 | Photos on the server disk (`services/storage.js`) | Cheapest | Object storage if the disk fills (worst case ~90 GB a year) |
 | Photos approved once per assignment | One flag, one button | Per-photo approval |
