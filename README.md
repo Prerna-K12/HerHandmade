@@ -213,4 +213,4 @@ herhandmade/
 | No cleanup job for old reference images | One less thing to break | A small script |
 | Manual deploy | No secrets in CI | Auto-deploy from GitHub Actions |
 
-**Known limitations:** photo authenticity cannot be guaranteed technically (admin review and the NGO's reputation are the safeguards). Post text is not auto-translated. There is no offline mode. Hindi and Kannada text should be checked by a native speaker.
+**Known limitations:** photo authenticity cannot be guaranteed technically (admin review and the NGO's reputation are the safeguards). Post text is not auto-translated. There is no offline mode. 
